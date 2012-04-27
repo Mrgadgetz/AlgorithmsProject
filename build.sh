@@ -1,5 +1,5 @@
 #!/bin/bash
 ant clean
-ant
+ant debugcompile
 java -cp bin AlgorithmsProject
 
