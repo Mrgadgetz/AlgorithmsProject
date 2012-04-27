@@ -3,10 +3,10 @@ import javax.swing.JFrame;
 import java.io.File;
 
 public class AlgorithmsProject {
-	private static final int OBJECT_WIDTH = 250;
-	private static final int OBJECT_HEIGHT = 250;
-	private static final double WALL_PERCENTAGE = 0.08;
-	private static final int PIXEL_SIZE = 1;
+	private static final int OBJECT_WIDTH = 160;
+	private static final int OBJECT_HEIGHT = 90;
+	private static final double WALL_PERCENTAGE = 0.25;
+	private static final int PIXEL_SIZE = 5;
 	public static void main(String[] args) {
 		JFrame frame = new JFrame();
 		frame.setSize(((OBJECT_WIDTH)*PIXEL_SIZE),((OBJECT_HEIGHT+5)*PIXEL_SIZE));
@@ -29,7 +29,7 @@ public class AlgorithmsProject {
     else
       mapGen = new MapGenerator(OBJECT_WIDTH, OBJECT_HEIGHT,WALL_PERCENTAGE);
 		MapObject[][] map = mapGen.getMap();
-    Heuristic heuristic = new EuclideanHeuristic();
+    Heuristic heuristic = new ManhattanHeuristic();
 		AStar myAStar = new AStar(map, heuristic);
 
 		List<MapObject> resultList = null;

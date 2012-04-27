@@ -30,7 +30,7 @@ public class AStar {
         openset.offer(start);
         HashSet<MapObject> closedset = new HashSet<MapObject>();
 
-        while (openset.peek() != end) {
+        while (openset.peek() != null && openset.peek() != end) {
 
             MapObject current = openset.poll();
             //added the following line for drawing prettiness.
@@ -78,6 +78,8 @@ public class AStar {
     private ArrayList<MapObject> reconstruct_path(MapObject current, MapObject start) {
         ArrayList<MapObject> path = new ArrayList<MapObject>();
 
+        if (current == null)
+          return path;
         if (current.parent != start) {
             path.addAll(reconstruct_path(current.parent, start));
         }
